@@ -1,41 +1,62 @@
 # Sistema de Gestión de Tareas por Equipos
 
-Proyecto de la Clase Práctica 5 de Programación Web Avanzada de la Universidad Bolivariana del Ecuador. La aplicación usa Laravel, MySQL, Bootstrap 5 y JavaScript para gestionar proyectos y tareas con permisos por rol.
+Proyecto completo de la Clase Práctica 5 de Programación Web Avanzada de la Universidad Bolivariana del Ecuador. La aplicación permite administrar usuarios, proyectos, equipos y tareas mediante tres roles con permisos diferentes.
 
-## Roles
+## Tecnologías
 
-- **Administrador:** gestiona usuarios, asigna roles, crea proyectos y supervisa todos los proyectos y tareas.
-- **Gerente de proyecto:** crea, edita, elimina y asigna las tareas de los proyectos que dirige.
-- **Miembro del equipo:** consulta sus proyectos y cambia únicamente el estado de las tareas que tiene asignadas.
-
-## Requisitos locales
-
-- PHP 8.3 o superior con las extensiones requeridas por Laravel.
-- Composer.
+- Laravel 13 y PHP 8.3 o superior.
 - MySQL 8.
-- Node.js y npm para los recursos visuales.
-- Laragon es la opción recomendada para el equipo porque agrupa estas herramientas.
+- Blade, Bootstrap 5.3 y CSS3.
+- JavaScript para confirmaciones e interacciones de la interfaz.
+- PHPUnit para pruebas automáticas.
 
-## Instalación
+## Funciones implementadas
 
-1. Clona el repositorio dentro de `D:\laragon\www` y entra en su carpeta.
-2. Instala las dependencias:
+### Administrador
+
+- Iniciar y cerrar sesión.
+- Crear, editar y eliminar usuarios.
+- Asignar los roles Administrador, Gerente de proyecto y Miembro del equipo.
+- Crear, editar y eliminar proyectos.
+- Seleccionar el gerente y los integrantes de cada proyecto.
+- Consultar todos los proyectos y tareas.
+- Visualizar indicadores generales en el dashboard.
+
+### Gerente de proyecto
+
+- Consultar únicamente los proyectos que administra.
+- Consultar los integrantes de sus proyectos.
+- Crear, editar, asignar y eliminar tareas de sus proyectos.
+- Cambiar el estado de las tareas que administra.
+- No puede modificar proyectos ajenos ni administrar usuarios.
+
+### Miembro del equipo
+
+- Consultar únicamente los proyectos donde participa.
+- Consultar exclusivamente las tareas asignadas a su cuenta.
+- Cambiar el estado de sus tareas entre Pendiente, En proceso y Completado.
+- No puede modificar el contenido ni eliminar tareas.
+
+## Instalación en Laragon
+
+1. Descomprime el proyecto en `D:\laragon\www\pwapractica5`.
+2. Abre la terminal de Laragon dentro de la carpeta del proyecto.
+3. Instala las dependencias de PHP:
 
    ```powershell
    composer install
-   npm install
    ```
 
-3. Crea el archivo local de configuración y la clave de la aplicación:
+4. Crea el archivo de configuración y la clave de Laravel:
 
    ```powershell
    Copy-Item .env.example .env
    php artisan key:generate
    ```
 
-4. Crea una base de datos MySQL llamada `pwapractica5` y configura estas variables en `.env`:
+5. Crea una base de datos MySQL llamada `pwapractica5` y configura `.env`:
 
-   ```dotenv
+   ```env
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
@@ -44,60 +65,83 @@ Proyecto de la Clase Práctica 5 de Programación Web Avanzada de la Universidad
    DB_PASSWORD=
    ```
 
-   La contraseña depende de la instalación local de cada integrante. El archivo `.env` no debe subirse a GitHub.
-
-5. Crea las tablas y los roles:
+6. Crea las tablas y los roles:
 
    ```powershell
    php artisan migrate --seed
    ```
 
-6. Crea el primer administrador sin guardar su contraseña en el repositorio:
+7. Para una demostración local completa, crea las cuentas y datos de ejemplo:
 
    ```powershell
-   php artisan app:create-administrator
+   php artisan db:seed --class=DemoDataSeeder
    ```
 
-7. Inicia el entorno:
+8. Inicia Apache y MySQL desde Laragon y abre `http://pwapractica5.test`.
 
-   ```powershell
-   composer run dev
-   ```
+También se puede iniciar con `php artisan serve` y abrir la dirección indicada por la terminal.
 
-También se puede usar el dominio automático de Laragon cuando Apache y MySQL estén iniciados.
+## Cuentas de demostración
 
-## API del backend
+Las siguientes cuentas existen únicamente después de ejecutar `DemoDataSeeder`:
 
-Las rutas usan sesiones de Laravel y requieren autenticación, excepto el inicio de sesión.
+| Rol | Correo | Contraseña |
+| --- | --- | --- |
+| Administrador | `admin@pwapractica5.test` | `Demo2026!` |
+| Gerente | `gerente@pwapractica5.test` | `Demo2026!` |
+| Miembro | `miembro@pwapractica5.test` | `Demo2026!` |
 
-| Método | Ruta | Función |
-|---|---|---|
-| POST | `/api/login` | Iniciar sesión |
-| POST | `/api/logout` | Cerrar sesión |
-| GET | `/api/me` | Consultar usuario actual |
-| GET/POST | `/api/users` | Listar o crear usuarios (administrador) |
-| GET/PATCH/DELETE | `/api/users/{user}` | Consultar, actualizar o eliminar usuario |
-| GET/POST | `/api/projects` | Listar proyectos visibles o crear uno |
-| GET/PATCH/DELETE | `/api/projects/{project}` | Consultar, actualizar o eliminar proyecto |
-| GET/POST | `/api/projects/{project}/tasks` | Listar o crear tareas del proyecto |
-| GET | `/api/tasks` | Listar las tareas visibles según el rol |
-| GET/PATCH/DELETE | `/api/tasks/{task}` | Consultar, actualizar o eliminar tarea |
-| PATCH | `/api/tasks/{task}/status` | Cambiar el estado de una tarea asignada |
+Estas credenciales son solo para localhost. Antes de publicar el sistema se deben eliminar los datos de demostración y crear contraseñas nuevas.
 
-Estados permitidos: `Pendiente`, `En proceso` y `Completado`.
-
-## Verificación
-
-Antes de subir cambios, ejecuta:
+## Pruebas automáticas
 
 ```powershell
-vendor\bin\pint --dirty
 php artisan test --compact
 ```
 
-## Trabajo colaborativo
+La suite comprueba autenticación, permisos, aislamiento entre proyectos, CRUD de usuarios, proyectos y tareas, actualización de estados y navegación web por rol.
 
-- `main` conserva únicamente cambios revisados e integrados.
-- Cada integrante trabaja en una rama propia (`backend/...`, `frontend/...`, `testing/...`).
-- Se recomienda un commit por cambio lógico y un pull request para integrar a `main`.
-- Nunca se suben `.env`, contraseñas, `vendor` ni `node_modules`.
+## Prueba manual recomendada
+
+1. Inicia sesión como Administrador y crea una cuenta de cada rol.
+2. Crea un proyecto, selecciona un gerente y agrega miembros.
+3. Inicia sesión como el gerente y crea una tarea para un miembro.
+4. Comprueba que el gerente no pueda abrir proyectos ajenos.
+5. Inicia sesión como miembro y cambia el estado de su tarea.
+6. Comprueba que el miembro no pueda editar el título ni abrir tareas ajenas.
+7. Regresa al Administrador y confirma que puede supervisar todos los proyectos y tareas.
+
+## Estructura principal
+
+```text
+app/
+├── Http/Controllers/       API existente
+├── Http/Controllers/Web/   Interfaz web completa
+├── Http/Requests/          Validaciones y autorización
+├── Models/                 Usuario, rol, proyecto y tarea
+└── Policies/               Reglas de permisos
+
+database/
+├── migrations/             Estructura MySQL
+├── factories/              Datos para pruebas
+└── seeders/                Roles y demostración
+
+resources/views/
+├── auth/                   Inicio de sesión
+├── layouts/                Plantillas generales
+├── users/                  Gestión de usuarios
+├── projects/               Gestión de proyectos
+└── tasks/                  Gestión de tareas
+
+public/
+├── css/app.css             Diseño responsive
+└── js/app.js               Interactividad
+```
+
+## Flujo de ramas recomendado
+
+- `backend/arquitectura-inicial`: respaldo del backend original.
+- `integration/sistema-completo`: versión integrada con interfaz.
+- `main`: versión estable después de revisión y pruebas.
+
+No se deben subir `.env`, contraseñas reales, `vendor` ni `node_modules` al repositorio.
