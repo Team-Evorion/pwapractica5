@@ -9,6 +9,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/landing.css') }}" rel="stylesheet">
     <link href="{{ asset('css/team.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/public-pages.js') }}" defer></script>
 </head>
 <body class="team-page-public">
     <header class="team-header">
@@ -32,19 +33,21 @@
 
     <main>
         <section class="team-intro">
+            <div class="team-blob team-blob-one" aria-hidden="true"></div>
+            <div class="team-blob team-blob-two" aria-hidden="true"></div>
             <div class="team-intro-glow" aria-hidden="true"></div>
             <div class="team-shell team-intro-grid">
-                <div class="team-title-block">
+                <div class="team-title-block" data-reveal>
                     <p class="team-eyebrow">EQUIPO · CLASE PRÁCTICA 5</p>
                     <h1>Seis personas.<br><em>Una misma dirección.</em></h1>
                 </div>
-                <div class="team-intro-copy">
+                <div class="team-intro-copy" data-reveal data-reveal-delay="1">
                     <span class="team-rule" aria-hidden="true"></span>
                     <p>Un equipo de estudiantes construyendo una experiencia de gestión completa: desde la arquitectura y los permisos hasta la interfaz que conecta cada tarea con su responsable.</p>
                     <a href="#integrantes">Conocer integrantes <span aria-hidden="true">↓</span></a>
                 </div>
             </div>
-            <div class="team-shell team-intro-meta">
+            <div class="team-shell team-intro-meta" data-reveal>
                 <span>Universidad Bolivariana del Ecuador</span>
                 <span>Programación Web Avanzada</span>
                 <span>2026</span>
@@ -53,7 +56,7 @@
 
         <section class="team-roster" id="integrantes">
             <div class="team-shell">
-                <div class="team-roster-heading">
+                <div class="team-roster-heading" data-reveal>
                     <div>
                         <p class="team-eyebrow team-eyebrow-purple">QUIÉNES LO HICIERON POSIBLE</p>
                         <h2>Integrantes del proyecto</h2>
@@ -63,32 +66,32 @@
                 </div>
 
                 <div class="team-roster-grid">
-                    <article class="team-member">
+                    <article class="team-member" data-reveal>
                         <span class="team-member-number">01</span>
                         <span class="team-member-avatar">JF</span>
                         <div><h3>Jesús Rafael Fernández Pérez</h3><p>Integrante del proyecto</p></div>
                     </article>
-                    <article class="team-member">
+                    <article class="team-member" data-reveal data-reveal-delay="1">
                         <span class="team-member-number">02</span>
                         <span class="team-member-avatar">JM</span>
                         <div><h3>José Andrés Merlin Gamboa</h3><p>Integrante del proyecto</p></div>
                     </article>
-                    <article class="team-member">
+                    <article class="team-member" data-reveal>
                         <span class="team-member-number">03</span>
                         <span class="team-member-avatar">JR</span>
                         <div><h3>José Alberto Rosado Domínguez</h3><p>Integrante del proyecto</p></div>
                     </article>
-                    <article class="team-member">
+                    <article class="team-member" data-reveal data-reveal-delay="1">
                         <span class="team-member-number">04</span>
                         <span class="team-member-avatar">TP</span>
                         <div><h3>Terry Steven Ponce Farías</h3><p>Integrante del proyecto</p></div>
                     </article>
-                    <article class="team-member">
+                    <article class="team-member" data-reveal>
                         <span class="team-member-number">05</span>
                         <span class="team-member-avatar">EV</span>
                         <div><h3>Elkin Daniel Velastegui Zambrano</h3><p>Integrante del proyecto</p></div>
                     </article>
-                    <article class="team-member">
+                    <article class="team-member" data-reveal data-reveal-delay="1">
                         <span class="team-member-number">06</span>
                         <span class="team-member-avatar">ZZ</span>
                         <div><h3>Zahid Joel Zambrano Moreira</h3><p>Integrante del proyecto</p></div>
@@ -99,11 +102,11 @@
 
         <section class="team-principles">
             <div class="team-shell team-principles-grid">
-                <div>
+                <div data-reveal>
                     <p class="team-eyebrow">NUESTRA FORMA DE TRABAJAR</p>
                     <h2>Construir en equipo también es <em>hacer visible el proceso.</em></h2>
                 </div>
-                <ol>
+                <ol data-reveal data-reveal-delay="1">
                     <li><span>01</span><div><strong>Organización</strong><p>Objetivos, proyectos y tareas con un lugar definido.</p></div></li>
                     <li><span>02</span><div><strong>Colaboración</strong><p>Responsabilidades distribuidas y avance compartido.</p></div></li>
                     <li><span>03</span><div><strong>Verificación</strong><p>Permisos y flujos revisados antes de cada entrega.</p></div></li>
@@ -113,8 +116,8 @@
 
         <section class="team-closing">
             <div class="team-shell team-closing-inner">
-                <div><p class="team-eyebrow team-eyebrow-purple">CONOCE EL RESULTADO</p><h2>Un sistema creado<br>como <em>equipo.</em></h2></div>
-                <div>
+                <div data-reveal><p class="team-eyebrow team-eyebrow-purple">CONOCE EL RESULTADO</p><h2>Un sistema creado<br>como <em>equipo.</em></h2></div>
+                <div data-reveal data-reveal-delay="1">
                     <p>Explora la propuesta completa y descubre cómo cada rol participa en el trabajo.</p>
                     <a class="team-closing-button" href="{{ route('home') }}">Volver al proyecto <span aria-hidden="true">→</span></a>
                 </div>
