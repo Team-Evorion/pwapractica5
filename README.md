@@ -17,6 +17,7 @@ Proyecto completo de la Clase Práctica 5 de Programación Web Avanzada de la Un
 - Portada institucional de la Clase Práctica 5 accesible sin iniciar sesión.
 - Resumen del flujo de trabajo, tecnologías y alcance de cada rol.
 - Página independiente y responsive para presentar a los seis integrantes del proyecto.
+- Experiencia independiente y animada para explicar los tres roles y sus permisos.
 - Acceso directo al inicio de sesión o al panel cuando existe una sesión activa.
 
 ### Administrador
@@ -140,6 +141,7 @@ database/
 resources/views/
 ├── welcome.blade.php        Portada pública del sistema
 ├── team.blade.php           Presentación independiente del equipo
+├── roles.blade.php          Experiencia pública de roles y permisos
 ├── auth/                   Inicio de sesión
 ├── layouts/                Plantillas generales
 ├── users/                  Gestión de usuarios

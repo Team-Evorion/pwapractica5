@@ -18,6 +18,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::view('/equipo', 'team')->name('team');
+Route::view('/roles', 'roles')->name('roles');
 
 Route::middleware('guest')->group(function (): void {
     Route::get('login', [WebAuthenticatedSessionController::class, 'create'])->name('login');

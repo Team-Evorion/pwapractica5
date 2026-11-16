@@ -18,7 +18,20 @@ class ExampleTest extends TestCase
             ->assertOk()
             ->assertSee('Gestión clara para')
             ->assertSee('equipos que avanzan.')
+            ->assertSee(route('roles'))
             ->assertSee(route('team'));
+    }
+
+    public function test_roles_page_presents_the_three_access_levels(): void
+    {
+        $response = $this->get('/roles');
+
+        $response
+            ->assertOk()
+            ->assertSee('Tres formas de participar.')
+            ->assertSee('Administrador')
+            ->assertSee('Gerente de proyecto')
+            ->assertSee('Miembro del equipo');
     }
 
     public function test_team_page_presents_the_six_members(): void

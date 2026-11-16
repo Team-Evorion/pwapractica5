@@ -254,20 +254,6 @@ html { scroll-behavior: smooth; }
 .workflow-card > small { bottom: 28px; color: var(--landing-purple); font-size: .58rem; font-weight: 800; letter-spacing: .14em; position: absolute; }
 .workflow-card-featured > small { color: #d5b9f5; }
 
-.roles-section { background: var(--landing-purple-deep); color: #fff; overflow: hidden; position: relative; }
-.roles-section::before { border: 1px solid rgba(255, 255, 255, .05); border-radius: 50%; content: ""; height: 650px; left: -350px; position: absolute; top: -260px; width: 650px; }
-.roles-layout { align-items: center; display: grid; gap: 90px; grid-template-columns: .8fr 1.2fr; position: relative; }
-.roles-copy h2 { margin-bottom: 28px; }
-.roles-copy > p { color: rgba(255, 255, 255, .58); margin-bottom: 34px; }
-.text-link { color: #d1b6f1; font-size: .78rem; font-weight: 750; text-decoration: none; }
-.text-link:hover { color: #fff; }
-.role-stack { border-top: 1px solid rgba(255, 255, 255, .14); }
-.role-row { align-items: center; border-bottom: 1px solid rgba(255, 255, 255, .14); display: grid; gap: 22px; grid-template-columns: auto 1fr auto; padding: 28px 0; }
-.role-index { color: #a885d6; font-family: Georgia, serif; font-size: 1.25rem; }
-.role-row h3 { font-family: Georgia, serif; font-size: 1.25rem; font-weight: 500; margin-bottom: 6px; }
-.role-row p { color: rgba(255, 255, 255, .52); font-size: .78rem; line-height: 1.6; margin: 0; }
-.role-tag { border: 1px solid rgba(255, 255, 255, .2); border-radius: 999px; color: #d7c7e9; font-size: .56rem; font-weight: 750; padding: 7px 10px; text-transform: uppercase; }
-
 .landing-cta { background: linear-gradient(110deg, #6d3eb1, #8e5ad1); color: #fff; padding: 88px 0; }
 .landing-cta-inner { align-items: center; display: flex; gap: 40px; justify-content: space-between; }
 .landing-cta h2 { font-size: clamp(2.4rem, 4.5vw, 4.2rem); line-height: 1; margin: 0; }
@@ -282,8 +268,7 @@ html { scroll-behavior: smooth; }
     .landing-nav { grid-template-columns: 1fr auto; }
     .landing-links { display: none; }
     .landing-hero { padding-top: 150px; }
-    .landing-hero-grid,
-    .roles-layout { gap: 65px; grid-template-columns: 1fr; }
+    .landing-hero-grid { gap: 65px; grid-template-columns: 1fr; }
     .landing-hero-copy { max-width: 760px; }
     .product-window { margin-inline: auto; max-width: 620px; transform: none; width: 100%; }
     .proof-grid { grid-template-columns: repeat(3, 1fr); }
@@ -311,8 +296,6 @@ html { scroll-behavior: smooth; }
     .workflow-grid { grid-template-columns: 1fr; }
     .workflow-card-featured { transform: none; }
     .workflow-card-featured:hover { transform: translateY(-5px); }
-    .role-row { align-items: start; grid-template-columns: auto 1fr; }
-    .role-tag { grid-column: 2; justify-self: start; }
     .landing-cta-inner { align-items: flex-start; flex-direction: column; }
     .landing-footer-inner { gap: 32px; grid-template-columns: 1fr; }
     .landing-footer p { text-align: left; }

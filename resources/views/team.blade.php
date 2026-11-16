@@ -20,7 +20,7 @@
 
             <div class="team-nav-links">
                 <a href="{{ route('home') }}#sistema">Sistema</a>
-                <a href="{{ route('home') }}#roles">Roles</a>
+                <a href="{{ route('roles') }}">Roles</a>
                 <a class="active" href="{{ route('team') }}" aria-current="page">Equipo</a>
             </div>
 

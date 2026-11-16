@@ -19,7 +19,7 @@
 
             <div class="landing-links">
                 <a href="#sistema">Sistema</a>
-                <a href="#roles">Roles</a>
+                <a href="{{ route('roles') }}">Roles</a>
                 <a href="{{ route('team') }}">Equipo</a>
             </div>
 
@@ -116,34 +116,6 @@
             </div>
         </section>
 
-        <section class="landing-section roles-section" id="roles">
-            <div class="landing-container roles-layout">
-                <div class="roles-copy">
-                    <p class="landing-kicker">PERMISOS CON PROPÓSITO</p>
-                    <h2>Cada rol ve lo necesario. <em>Nada más, nada menos.</em></h2>
-                    <p>El sistema aplica autorización en cada operación para proteger la información y mantener el trabajo distribuido con claridad.</p>
-                    <a class="text-link" href="{{ auth()->check() ? route('dashboard') : route('login') }}">Ver la experiencia completa <span aria-hidden="true">→</span></a>
-                </div>
-                <div class="role-stack">
-                    <article class="role-row">
-                        <span class="role-index">01</span>
-                        <div><h3>Administrador</h3><p>Configura usuarios, roles y proyectos; supervisa el estado general del sistema.</p></div>
-                        <span class="role-tag">Control global</span>
-                    </article>
-                    <article class="role-row">
-                        <span class="role-index">02</span>
-                        <div><h3>Gerente de proyecto</h3><p>Coordina integrantes, crea tareas y conduce el avance de los proyectos asignados.</p></div>
-                        <span class="role-tag">Coordinación</span>
-                    </article>
-                    <article class="role-row">
-                        <span class="role-index">03</span>
-                        <div><h3>Miembro del equipo</h3><p>Consulta sus tareas, actualiza estados y mantiene visible su progreso.</p></div>
-                        <span class="role-tag">Ejecución</span>
-                    </article>
-                </div>
-            </div>
-        </section>
-
         <section class="landing-cta">
             <div class="landing-container landing-cta-inner">
                 <div><p class="landing-kicker">EL TRABAJO EMPIEZA AQUÍ</p><h2>Convierte la organización<br>en <em>avance real.</em></h2></div>
@@ -158,7 +130,7 @@
         <div class="landing-container landing-footer-inner">
             <a class="landing-brand landing-brand-footer" href="#inicio"><span class="landing-brand-mark">P5</span><span><strong>Gestión de Tareas</strong><small>Clase Práctica 5</small></span></a>
             <p>Universidad Bolivariana del Ecuador<br>Programación Web Avanzada · 2026</p>
-            <div><a href="#sistema">Sistema</a><a href="#roles">Roles</a><a href="{{ route('team') }}">Equipo</a></div>
+            <div><a href="#sistema">Sistema</a><a href="{{ route('roles') }}">Roles</a><a href="{{ route('team') }}">Equipo</a></div>
         </div>
     </footer>
 
