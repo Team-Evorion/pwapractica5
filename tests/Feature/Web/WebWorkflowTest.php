@@ -35,6 +35,34 @@ class WebWorkflowTest extends TestCase
         ]);
     }
 
+    public function test_user_creation_reports_password_confirmation_error_in_spanish(): void
+    {
+        $administrator = User::factory()->administrator()->create();
+        $memberRole = Role::query()->firstOrCreate(['name' => RoleName::TeamMember->value]);
+
+        $this->actingAs($administrator)
+            ->get('/users/create')
+            ->assertOk()
+            ->assertSee('data-password-target="password"', false)
+            ->assertSee('data-password-target="password_confirmation"', false);
+
+        $this->actingAs($administrator)
+            ->from('/users/create')
+            ->post('/users', [
+                'role_id' => $memberRole->id,
+                'name' => 'Miembro Nuevo',
+                'email' => 'nuevo@example.com',
+                'password' => 'password123',
+                'password_confirmation' => 'otra-clave',
+            ])
+            ->assertRedirect('/users/create')
+            ->assertSessionHasErrors([
+                'password_confirmation' => 'La confirmación de contraseña no coincide.',
+            ]);
+
+        $this->assertDatabaseMissing('users', ['email' => 'nuevo@example.com']);
+    }
+
     public function test_administrator_creates_project_with_manager_and_members(): void
     {
         $administrator = User::factory()->administrator()->create();
