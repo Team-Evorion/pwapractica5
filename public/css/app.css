@@ -220,3 +220,116 @@ a { text-underline-offset: .15rem; }
     .login-shell { min-height: auto; }
     .table > :not(caption) > * > * { padding: .8rem; }
 }
+
+@media (max-width: 575.98px) {
+    .activity-table thead,
+    .users-table thead {
+        display: none;
+    }
+
+    .activity-table,
+    .activity-table tbody,
+    .activity-table tr,
+    .activity-table td,
+    .users-table,
+    .users-table tbody,
+    .users-table tr,
+    .users-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .activity-table tbody,
+    .users-table tbody {
+        padding: .75rem;
+    }
+
+    .activity-table tr,
+    .users-table tr {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: .9rem;
+        box-shadow: 0 .25rem .75rem rgba(35, 38, 55, .05);
+        margin-bottom: .75rem;
+        padding: .25rem .85rem;
+    }
+
+    .activity-table td,
+    .users-table td {
+        align-items: center;
+        border: 0 !important;
+        border-bottom: 1px solid #eef0f5 !important;
+        display: grid;
+        gap: .75rem;
+        grid-template-columns: minmax(5.5rem, .8fr) 1.2fr;
+        overflow-wrap: anywhere;
+        padding: .7rem 0 !important;
+        text-align: left !important;
+        white-space: normal;
+    }
+
+    .activity-table td::before,
+    .users-table td::before {
+        color: #747988;
+        content: attr(data-label);
+        font-size: .68rem;
+        font-weight: 800;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+    }
+
+    .activity-table td:last-child,
+    .users-table td:last-child {
+        border-bottom: 0 !important;
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+    }
+
+    .activity-table td:last-child::before {
+        display: none;
+    }
+
+    .activity-table td:last-child .btn {
+        width: 100%;
+    }
+
+    .users-table td:last-child::before {
+        flex: 0 0 100%;
+    }
+
+    .users-table td:last-child > a,
+    .users-table td:last-child > form {
+        flex: 1 1 6rem;
+    }
+
+    .users-table td:last-child form {
+        display: block !important;
+    }
+
+    .users-table td:last-child .btn {
+        width: 100%;
+    }
+
+    .app-navbar .navbar-brand {
+        align-items: center;
+        display: flex;
+        font-size: .9rem;
+        margin-right: .25rem;
+        white-space: nowrap;
+    }
+
+    .app-navbar .brand-mark {
+        border-radius: .6rem;
+        flex: 0 0 1.85rem;
+        font-size: .78rem;
+        height: 1.85rem;
+        width: 1.85rem;
+    }
+
+    .app-navbar .navbar-toggler {
+        font-size: .95rem;
+        margin-left: auto;
+        padding: .28rem .5rem;
+    }
+}

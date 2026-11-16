@@ -23,16 +23,16 @@
         <x-empty-state class="m-4" title="No hay usuarios" message="Crea la primera cuenta para comenzar." />
     @else
         <div class="table-responsive">
-            <table class="table align-middle mb-0">
+            <table class="table users-table align-middle mb-0">
                 <thead><tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Registro</th><th class="text-end">Acciones</th></tr></thead>
                 <tbody>
                 @foreach($users as $user)
                     <tr>
-                        <td class="fw-semibold">{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td><span class="badge text-bg-light border">{{ $user->role?->name }}</span></td>
-                        <td>{{ $user->created_at->format('d/m/Y') }}</td>
-                        <td class="text-end text-nowrap">
+                        <td data-label="Nombre" class="fw-semibold">{{ $user->name }}</td>
+                        <td data-label="Correo" class="user-email">{{ $user->email }}</td>
+                        <td data-label="Rol"><span class="badge text-bg-light border">{{ $user->role?->name }}</span></td>
+                        <td data-label="Registro">{{ $user->created_at->format('d/m/Y') }}</td>
+                        <td data-label="Acciones" class="text-end">
                             <a class="btn btn-sm btn-outline-primary" href="{{ route('users.edit', $user) }}">Editar</a>
                             @if(! auth()->user()->is($user))
                                 <form class="d-inline" method="POST" action="{{ route('users.destroy', $user) }}" data-confirm="¿Eliminar a {{ $user->name }}? Esta acción no se puede deshacer.">

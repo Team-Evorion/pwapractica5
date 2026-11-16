@@ -31,15 +31,15 @@
         <x-empty-state class="m-4" title="Todavía no hay tareas" message="Cuando se asignen tareas aparecerán en este panel." />
     @else
         <div class="table-responsive">
-            <table class="table align-middle mb-0">
+            <table class="table activity-table align-middle mb-0">
                 <thead><tr><th>Tarea</th><th>Proyecto</th><th>Responsable</th><th>Estado</th><th></th></tr></thead>
                 <tbody>
                 @foreach($recentTasks as $task)
                     <tr>
-                        <td class="fw-semibold">{{ $task->title }}</td>
-                        <td>{{ $task->project->name }}</td>
-                        <td>{{ $task->assignee->name }}</td>
-                        <td><x-status-badge :status="$task->status" /></td>
+                        <td data-label="Tarea" class="fw-semibold">{{ $task->title }}</td>
+                        <td data-label="Proyecto">{{ $task->project->name }}</td>
+                        <td data-label="Responsable">{{ $task->assignee->name }}</td>
+                        <td data-label="Estado"><x-status-badge :status="$task->status" /></td>
                         <td class="text-end"><a class="btn btn-sm btn-light" href="{{ route('tasks.show', $task) }}">Abrir</a></td>
                     </tr>
                 @endforeach
