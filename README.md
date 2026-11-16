@@ -1,58 +1,172 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistema de Gestión de Tareas por Equipos
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Proyecto completo de la Clase Práctica 5 de Programación Web Avanzada de la Universidad Bolivariana del Ecuador. La aplicación permite administrar usuarios, proyectos, equipos y tareas mediante tres roles con permisos diferentes.
 
-## About Laravel
+## Tecnologías
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Laravel 13 y PHP 8.4.1 o superior (requisito de las dependencias bloqueadas actuales).
+- MySQL 8 o MariaDB 10.11.
+- Blade, Bootstrap 5.3 y CSS3.
+- JavaScript para confirmaciones e interacciones de la interfaz.
+- PHPUnit para pruebas automáticas.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Funciones implementadas
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Presentación pública
 
-## Learning Laravel
+- Portada institucional de la Clase Práctica 5 accesible sin iniciar sesión.
+- Resumen del flujo de trabajo, tecnologías y alcance de cada rol.
+- Página independiente y responsive para presentar a los seis integrantes del proyecto.
+- Experiencia independiente y animada para explicar los tres roles y sus permisos.
+- Acceso directo al inicio de sesión o al panel cuando existe una sesión activa.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Administrador
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Iniciar y cerrar sesión.
+- Crear, editar y eliminar usuarios.
+- Asignar los roles Administrador, Gerente de proyecto y Miembro del equipo.
+- Crear, editar y eliminar proyectos.
+- Seleccionar el gerente y los integrantes de cada proyecto.
+- Consultar todos los proyectos y tareas.
+- Visualizar indicadores generales en el dashboard.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### Gerente de proyecto
 
-## Agentic Development
+- Consultar únicamente los proyectos que administra.
+- Consultar los integrantes de sus proyectos.
+- Crear, editar, asignar y eliminar tareas de sus proyectos.
+- Cambiar el estado de las tareas que administra.
+- No puede modificar proyectos ajenos ni administrar usuarios.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Miembro del equipo
 
-```bash
-composer require laravel/boost --dev
+- Consultar únicamente los proyectos donde participa.
+- Consultar exclusivamente las tareas asignadas a su cuenta.
+- Cambiar el estado de sus tareas entre Pendiente, En proceso y Completado.
+- No puede modificar el contenido ni eliminar tareas.
 
-php artisan boost:install
+## Instalación en XAMPP
+
+1. Descomprime el proyecto dentro de la carpeta `htdocs` de XAMPP, por ejemplo `C:\xampp\htdocs\pwapractica5`.
+2. Abre PowerShell dentro de la carpeta del proyecto y confirma que XAMPP utiliza PHP 8.4.1 o superior.
+3. Instala las dependencias de PHP:
+
+   ```powershell
+   composer install
+   ```
+
+4. Crea el archivo de configuración y la clave de Laravel:
+
+   ```powershell
+   Copy-Item .env.example .env
+   php artisan key:generate
+   ```
+
+5. Crea una base de datos MySQL llamada `pwapractica5` y configura `.env`:
+
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=pwapractica5
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
+
+6. Crea las tablas y los roles:
+
+   ```powershell
+   php artisan migrate --seed
+   ```
+
+7. Para una demostración local completa, crea las cuentas y datos de ejemplo:
+
+   ```powershell
+   php artisan db:seed --class=DemoDataSeeder
+   ```
+
+8. Inicia MySQL desde el panel de XAMPP.
+
+9. Inicia la aplicación y abre la dirección indicada por la terminal:
+
+   ```powershell
+   php artisan serve
+   ```
+
+## Cuentas de demostración
+
+Las siguientes cuentas existen únicamente después de ejecutar `DemoDataSeeder`:
+
+| Rol | Correo | Contraseña |
+| --- | --- | --- |
+| Administrador | `admin@pwapractica5.test` | `Demo2026!` |
+| Gerente | `gerente@pwapractica5.test` | `Demo2026!` |
+| Miembro | `miembro@pwapractica5.test` | `Demo2026!` |
+
+Estas credenciales son solo para localhost. Antes de publicar el sistema se deben eliminar los datos de demostración y crear contraseñas nuevas.
+
+## Pruebas automáticas
+
+```powershell
+php artisan test --compact
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+La suite comprueba autenticación, permisos, aislamiento entre proyectos, CRUD de usuarios, proyectos y tareas, actualización de estados y navegación web por rol.
 
-## Contributing
+## Prueba manual recomendada
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Inicia sesión como Administrador y crea una cuenta de cada rol.
+2. Crea un proyecto, selecciona un gerente y agrega miembros.
+3. Inicia sesión como el gerente y crea una tarea para un miembro.
+4. Comprueba que el gerente no pueda abrir proyectos ajenos.
+5. Inicia sesión como miembro y cambia el estado de su tarea.
+6. Comprueba que el miembro no pueda editar el título ni abrir tareas ajenas.
+7. Regresa al Administrador y confirma que puede supervisar todos los proyectos y tareas.
 
-## Code of Conduct
+## Estructura principal
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```text
+app/
+├── Http/Controllers/       API existente
+├── Http/Controllers/Web/   Interfaz web completa
+├── Http/Requests/          Validaciones y autorización
+├── Models/                 Usuario, rol, proyecto y tarea
+└── Policies/               Reglas de permisos
 
-## Security Vulnerabilities
+database/
+├── migrations/             Estructura MySQL
+├── factories/              Datos para pruebas
+└── seeders/                Roles y demostración
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+resources/views/
+├── welcome.blade.php        Portada pública del sistema
+├── team.blade.php           Presentación independiente del equipo
+├── roles.blade.php          Experiencia pública de roles y permisos
+├── auth/                   Inicio de sesión
+├── layouts/                Plantillas generales
+├── users/                  Gestión de usuarios
+├── projects/               Gestión de proyectos
+└── tasks/                  Gestión de tareas
 
-## License
+public/
+├── css/app.css             Diseño responsive
+├── css/landing.css         Presentación pública
+└── js/app.js               Interactividad
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Equipo de desarrollo
+
+- Jesús Rafael Fernández Pérez
+- José Andrés Merlin Gamboa
+- José Alberto Rosado Domínguez
+- Terry Steven Ponce Farías
+- Elkin Daniel Velastegui Zambrano
+- Zahid Joel Zambrano Moreira
+
+## Flujo de ramas recomendado
+
+- `backend/arquitectura-inicial`: respaldo del backend original.
+- `integration/sistema-completo`: versión integrada con interfaz.
+- `main`: versión estable después de revisión y pruebas.
+
+No se deben subir `.env`, contraseñas reales, `vendor` ni `node_modules` al repositorio.

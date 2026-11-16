@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Role;
 use App\Models\User;
+use App\RoleName;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -25,6 +27,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
+            'role_id' => fn (): int => $this->roleId(RoleName::TeamMember),
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
@@ -41,5 +44,31 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    public function administrator(): static
+    {
+        return $this->state(fn (): array => [
+            'role_id' => $this->roleId(RoleName::Administrator),
+        ]);
+    }
+
+    public function projectManager(): static
+    {
+        return $this->state(fn (): array => [
+            'role_id' => $this->roleId(RoleName::ProjectManager),
+        ]);
+    }
+
+    public function teamMember(): static
+    {
+        return $this->state(fn (): array => [
+            'role_id' => $this->roleId(RoleName::TeamMember),
+        ]);
+    }
+
+    private function roleId(RoleName $role): int
+    {
+        return Role::query()->firstOrCreate(['name' => $role->value])->id;
     }
 }
