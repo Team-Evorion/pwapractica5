@@ -77,7 +77,7 @@ html { scroll-behavior: smooth; }
 .team-member:nth-child(3), .team-member:nth-child(6) { background: #f5d7c8; }
 .team-member:hover { background: #fff; transform: translateY(-5px); }
 .team-member-number { color: #95868d; font-size: .54rem; font-weight: 850; }
-.team-member-avatar { align-items: center; background: var(--team-plum); border-radius: 50%; color: #fff; display: flex; flex: 0 0 56px; font-family: Georgia, serif; height: 56px; justify-content: center; }
+.team-member-avatar { align-items: center; aspect-ratio: 1; background: var(--team-plum); border-radius: 50%; color: #fff; display: flex; font-family: Georgia, serif; height: 56px; justify-content: center; min-width: 56px; width: 56px; }
 .team-member h3 { font-family: Georgia, serif; font-size: 1.13rem; font-weight: 600; line-height: 1.22; margin-bottom: 8px; }
 .team-member p { color: var(--team-muted); font-size: .62rem; margin: 0; }
 .team-member-arrow { border: 1px solid rgba(46, 31, 45, .16); border-radius: 50%; display: grid; height: 34px; place-items: center; transition: background .2s ease, color .2s ease; width: 34px; }
@@ -144,7 +144,7 @@ html { scroll-behavior: smooth; }
 @media (max-width: 420px) {
     .team-member { gap: 13px; }
     .team-member-number { display: none; }
-    .team-member-avatar { flex-basis: 48px; height: 48px; width: 48px; }
+    .team-member-avatar { height: 48px; min-width: 48px; width: 48px; }
 }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
