@@ -79,7 +79,8 @@ class TaskPolicy
 
     public function updateStatus(User $user, Task $task): bool
     {
-        return ($user->hasRole(RoleName::TeamMember) && $task->assigned_to === $user->id)
+        return $user->hasRole(RoleName::Administrator)
+            || ($user->hasRole(RoleName::TeamMember) && $task->assigned_to === $user->id)
             || ($user->hasRole(RoleName::ProjectManager) && $task->project->manager_id === $user->id);
     }
 }

@@ -110,4 +110,24 @@ class WebRoleAccessTest extends TestCase
             ->patch("/tasks/{$otherTask->id}/status", ['status' => TaskStatus::Completed->value])
             ->assertForbidden();
     }
+
+    public function test_administrator_can_update_any_task_status(): void
+    {
+        $administrator = User::factory()->administrator()->create();
+        $task = Task::factory()->create(['status' => TaskStatus::Pending]);
+
+        $this->actingAs($administrator)
+            ->get("/tasks/{$task->id}")
+            ->assertOk()
+            ->assertSee('Cambiar estado');
+
+        $this->actingAs($administrator)
+            ->patch("/tasks/{$task->id}/status", ['status' => TaskStatus::Completed->value])
+            ->assertRedirect();
+
+        $this->assertDatabaseHas('tasks', [
+            'id' => $task->id,
+            'status' => TaskStatus::Completed->value,
+        ]);
+    }
 }
