@@ -45,12 +45,12 @@
             <div class="team-shell">
                 <div class="team-roster-heading" data-reveal><div><p class="team-kicker team-kicker-warm">LAS PERSONAS DETRÁS DEL PROYECTO</p><h2>Una idea compartida,<br><em>seis aportes reales.</em></h2></div><p>La identidad del proyecto nace de un trabajo conjunto: organizar, construir, revisar y mejorar hasta que cada pieza encuentre su lugar.</p></div>
                 <div class="team-roster-grid">
-                    <article class="team-member" data-reveal><span class="team-member-number">01</span><span class="team-member-avatar">JF</span><div><h3>Jesús Rafael Fernández Pérez</h3><p>Integrante del proyecto</p></div><span class="team-member-arrow">↗</span></article>
-                    <article class="team-member" data-reveal data-reveal-delay="1"><span class="team-member-number">02</span><span class="team-member-avatar">JM</span><div><h3>José Andrés Merlin Gamboa</h3><p>Integrante del proyecto</p></div><span class="team-member-arrow">↗</span></article>
-                    <article class="team-member" data-reveal><span class="team-member-number">03</span><span class="team-member-avatar">JR</span><div><h3>José Alberto Rosado Domínguez</h3><p>Integrante del proyecto</p></div><span class="team-member-arrow">↗</span></article>
-                    <article class="team-member" data-reveal data-reveal-delay="1"><span class="team-member-number">04</span><span class="team-member-avatar">TP</span><div><h3>Terry Steven Ponce Farías</h3><p>Integrante del proyecto</p></div><span class="team-member-arrow">↗</span></article>
-                    <article class="team-member" data-reveal><span class="team-member-number">05</span><span class="team-member-avatar">EV</span><div><h3>Elkin Daniel Velastegui Zambrano</h3><p>Integrante del proyecto</p></div><span class="team-member-arrow">↗</span></article>
-                    <article class="team-member" data-reveal data-reveal-delay="1"><span class="team-member-number">06</span><span class="team-member-avatar">ZZ</span><div><h3>Zahid Joel Zambrano Moreira</h3><p>Integrante del proyecto</p></div><span class="team-member-arrow">↗</span></article>
+                    <article class="team-member" data-reveal><span class="team-member-number">01</span><span class="team-member-avatar">JF</span><div><h3>Jesús Rafael Fernández Pérez</h3><p>Integrante del proyecto</p></div></article>
+                    <article class="team-member" data-reveal data-reveal-delay="1"><span class="team-member-number">02</span><span class="team-member-avatar">JM</span><div><h3>José Andrés Merlin Gamboa</h3><p>Integrante del proyecto</p></div></article>
+                    <article class="team-member" data-reveal><span class="team-member-number">03</span><span class="team-member-avatar">JR</span><div><h3>José Alberto Rosado Domínguez</h3><p>Integrante del proyecto</p></div></article>
+                    <article class="team-member" data-reveal data-reveal-delay="1"><span class="team-member-number">04</span><span class="team-member-avatar">TP</span><div><h3>Terry Steven Ponce Farías</h3><p>Integrante del proyecto</p></div></article>
+                    <article class="team-member" data-reveal><span class="team-member-number">05</span><span class="team-member-avatar">EV</span><div><h3>Elkin Daniel Velastegui Zambrano</h3><p>Integrante del proyecto</p></div></article>
+                    <article class="team-member" data-reveal data-reveal-delay="1"><span class="team-member-number">06</span><span class="team-member-avatar">ZZ</span><div><h3>Zahid Joel Zambrano Moreira</h3><p>Integrante del proyecto</p></div></article>
                 </div>
             </div>
         </section>

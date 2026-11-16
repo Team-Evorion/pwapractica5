@@ -72,7 +72,7 @@ html { scroll-behavior: smooth; }
 .team-roster h2 em { color: var(--team-coral); font-weight: 400; }
 .team-roster-heading > p { color: rgba(255, 255, 255, .5); line-height: 1.8; margin: 0; }
 .team-roster-grid { display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); }
-.team-member { align-items: center; background: #f8f2ea; border-radius: 22px; color: var(--team-ink); display: grid; gap: 18px; grid-template-columns: auto auto 1fr auto; min-height: 148px; overflow: hidden; padding: 24px 26px; position: relative; transition: background .26s ease, transform .26s ease; }
+.team-member { align-items: center; background: #f8f2ea; border-radius: 22px; color: var(--team-ink); display: grid; gap: 18px; grid-template-columns: auto auto 1fr; min-height: 148px; overflow: hidden; padding: 24px 26px; position: relative; transition: background .26s ease, transform .26s ease; }
 .team-member:nth-child(2), .team-member:nth-child(5) { background: #eadff2; }
 .team-member:nth-child(3), .team-member:nth-child(6) { background: #f5d7c8; }
 .team-member:hover { background: #fff; transform: translateY(-5px); }
@@ -80,8 +80,6 @@ html { scroll-behavior: smooth; }
 .team-member-avatar { align-items: center; aspect-ratio: 1; background: var(--team-plum); border-radius: 50%; color: #fff; display: flex; font-family: Georgia, serif; height: 56px; justify-content: center; min-width: 56px; width: 56px; }
 .team-member h3 { font-family: Georgia, serif; font-size: 1.13rem; font-weight: 600; line-height: 1.22; margin-bottom: 8px; }
 .team-member p { color: var(--team-muted); font-size: .62rem; margin: 0; }
-.team-member-arrow { border: 1px solid rgba(46, 31, 45, .16); border-radius: 50%; display: grid; height: 34px; place-items: center; transition: background .2s ease, color .2s ease; width: 34px; }
-.team-member:hover .team-member-arrow { background: var(--team-coral); color: var(--team-plum); }
 
 .team-method { background: var(--team-paper); padding: 112px 0; }
 .team-method-grid { display: grid; gap: 100px; grid-template-columns: .85fr 1.15fr; }
@@ -138,7 +136,6 @@ html { scroll-behavior: smooth; }
     .team-roster, .team-method, .team-closing { padding: 78px 0; }
     .team-roster-grid { grid-template-columns: 1fr; }
     .team-member { grid-template-columns: auto auto 1fr; min-height: 132px; padding: 21px; }
-    .team-member-arrow { display: none; }
     .team-footer-inner { align-items: flex-start; flex-direction: column; gap: 24px; }
 }
 @media (max-width: 420px) {
