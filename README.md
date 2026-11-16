@@ -4,8 +4,8 @@ Proyecto completo de la Clase Práctica 5 de Programación Web Avanzada de la Un
 
 ## Tecnologías
 
-- Laravel 13 y PHP 8.3 o superior.
-- MySQL 8.
+- Laravel 13 y PHP 8.4.1 o superior (requisito de las dependencias bloqueadas actuales).
+- MySQL 8 o MariaDB 10.11.
 - Blade, Bootstrap 5.3 y CSS3.
 - JavaScript para confirmaciones e interacciones de la interfaz.
 - PHPUnit para pruebas automáticas.
@@ -37,10 +37,10 @@ Proyecto completo de la Clase Práctica 5 de Programación Web Avanzada de la Un
 - Cambiar el estado de sus tareas entre Pendiente, En proceso y Completado.
 - No puede modificar el contenido ni eliminar tareas.
 
-## Instalación en Laragon
+## Instalación en XAMPP
 
-1. Descomprime el proyecto en `D:\laragon\www\pwapractica5`.
-2. Abre la terminal de Laragon dentro de la carpeta del proyecto.
+1. Descomprime el proyecto dentro de la carpeta `htdocs` de XAMPP, por ejemplo `C:\xampp\htdocs\pwapractica5`.
+2. Abre PowerShell dentro de la carpeta del proyecto y confirma que XAMPP utiliza PHP 8.4.1 o superior.
 3. Instala las dependencias de PHP:
 
    ```powershell
@@ -77,9 +77,13 @@ Proyecto completo de la Clase Práctica 5 de Programación Web Avanzada de la Un
    php artisan db:seed --class=DemoDataSeeder
    ```
 
-8. Inicia Apache y MySQL desde Laragon y abre `http://pwapractica5.test`.
+8. Inicia MySQL desde el panel de XAMPP.
 
-También se puede iniciar con `php artisan serve` y abrir la dirección indicada por la terminal.
+9. Inicia la aplicación y abre la dirección indicada por la terminal:
+
+   ```powershell
+   php artisan serve
+   ```
 
 ## Cuentas de demostración
 

@@ -66,7 +66,7 @@ class ProjectController extends Controller
         $project->load([
             'manager.role',
             'members.role',
-            'tasks' => fn (Builder $query) => $query
+            'tasks' => fn ($query) => $query
                 ->when($user->hasRole(RoleName::TeamMember), fn (Builder $taskQuery) => $taskQuery->where('assigned_to', $user->id))
                 ->with('assignee.role')
                 ->latest('id'),

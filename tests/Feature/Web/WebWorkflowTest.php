@@ -4,6 +4,7 @@ namespace Tests\Feature\Web;
 
 use App\Models\Project;
 use App\Models\Role;
+use App\Models\Task;
 use App\Models\User;
 use App\RoleName;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
@@ -75,5 +76,24 @@ class WebWorkflowTest extends TestCase
             'assigned_to' => $member->id,
             'title' => 'Integrar interfaz',
         ]);
+    }
+
+    public function test_manager_can_open_own_project_with_tasks(): void
+    {
+        $manager = User::factory()->projectManager()->create();
+        $member = User::factory()->teamMember()->create();
+        $project = Project::factory()->for($manager, 'manager')->create([
+            'name' => 'Portal académico',
+        ]);
+        $project->members()->attach($member);
+        Task::factory()->for($project)->for($member, 'assignee')->create([
+            'title' => 'Validar permisos',
+        ]);
+
+        $this->actingAs($manager)
+            ->get("/projects/{$project->id}")
+            ->assertOk()
+            ->assertSee('Portal académico')
+            ->assertSee('Validar permisos');
     }
 }
