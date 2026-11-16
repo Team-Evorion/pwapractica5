@@ -40,8 +40,8 @@ class ExampleTest extends TestCase
 
         $response
             ->assertOk()
-            ->assertSee('Seis personas.')
-            ->assertSee('Una misma dirección.')
+            ->assertSee('Seis miradas.')
+            ->assertSee('Un solo proyecto.')
             ->assertSee('Jesús Rafael Fernández Pérez')
             ->assertSee('José Andrés Merlin Gamboa')
             ->assertSee('José Alberto Rosado Domínguez')

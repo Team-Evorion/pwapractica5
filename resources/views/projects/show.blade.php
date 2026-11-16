@@ -36,7 +36,7 @@
         <div class="card border-0 shadow-sm h-100">
             <div class="card-header bg-white py-3"><h2 class="h5 mb-0">Tareas del proyecto</h2></div>
             @if($project->tasks->isEmpty())
-                <x-empty-state class="m-4" title="Sin tareas" message="El gerente puede crear la primera tarea de este proyecto." />
+                <x-empty-state class="m-4" title="Sin tareas" message="El administrador o gerente del proyecto puede crear la primera tarea." />
             @else
                 <div class="list-group list-group-flush">
                     @foreach($project->tasks as $task)

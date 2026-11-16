@@ -54,6 +54,39 @@ class WebRoleAccessTest extends TestCase
             ->assertForbidden();
     }
 
+    public function test_administrator_can_choose_a_project_and_create_a_task(): void
+    {
+        $administrator = User::factory()->administrator()->create();
+        $manager = User::factory()->projectManager()->create();
+        $member = User::factory()->teamMember()->create();
+        $project = Project::factory()->for($manager, 'manager')->create();
+        $project->members()->attach($member);
+
+        $this->actingAs($administrator)
+            ->get('/tasks')
+            ->assertOk()
+            ->assertSee('Nueva tarea');
+
+        $this->actingAs($administrator)
+            ->get('/tasks/create')
+            ->assertOk()
+            ->assertSee($project->name);
+
+        $this->actingAs($administrator)
+            ->post("/projects/{$project->id}/tasks", [
+                'assigned_to' => $member->id,
+                'title' => 'Preparar entrega final',
+                'description' => 'Verificar el flujo completo.',
+            ])
+            ->assertRedirect("/projects/{$project->id}");
+
+        $this->assertDatabaseHas('tasks', [
+            'project_id' => $project->id,
+            'assigned_to' => $member->id,
+            'title' => 'Preparar entrega final',
+        ]);
+    }
+
     public function test_member_can_update_only_their_assigned_task_status(): void
     {
         $manager = User::factory()->projectManager()->create();

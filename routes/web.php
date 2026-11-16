@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function (): void {
         ->except(['show'])
         ->middleware('role:Administrator');
     Route::resource('projects', WebProjectController::class);
+    Route::get('tasks/create', [WebTaskController::class, 'selectProject'])->name('tasks.create');
     Route::resource('tasks', WebTaskController::class)->only(['index', 'show', 'edit', 'update', 'destroy']);
     Route::get('projects/{project}/tasks/create', [WebTaskController::class, 'create'])->name('projects.tasks.create');
     Route::post('projects/{project}/tasks', [WebTaskController::class, 'store'])->name('projects.tasks.store');

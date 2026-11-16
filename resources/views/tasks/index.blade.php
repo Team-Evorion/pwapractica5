@@ -3,10 +3,15 @@
 @section('title', 'Tareas')
 
 @section('content')
-<div class="page-heading mb-4">
-    <p class="eyebrow mb-1">Seguimiento</p>
-    <h1 class="fw-bold mb-1">Tareas</h1>
-    <p class="text-secondary mb-0">El listado está filtrado automáticamente según tu rol y proyectos.</p>
+<div class="page-heading d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-4">
+    <div>
+        <p class="eyebrow mb-1">Seguimiento</p>
+        <h1 class="fw-bold mb-1">Tareas</h1>
+        <p class="text-secondary mb-0">El listado está filtrado automáticamente según tu rol y proyectos.</p>
+    </div>
+    @if($canCreateTasks)
+        <a class="btn btn-primary" href="{{ route('tasks.create') }}">Nueva tarea</a>
+    @endif
 </div>
 
 <div class="card border-0 shadow-sm mb-4"><div class="card-body">

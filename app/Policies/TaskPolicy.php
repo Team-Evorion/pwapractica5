@@ -38,8 +38,9 @@ class TaskPolicy
      */
     public function create(User $user, Project $project): bool
     {
-        return $user->hasRole(RoleName::ProjectManager)
-            && $project->manager_id === $user->id;
+        return $user->hasRole(RoleName::Administrator)
+            || ($user->hasRole(RoleName::ProjectManager)
+                && $project->manager_id === $user->id);
     }
 
     /**

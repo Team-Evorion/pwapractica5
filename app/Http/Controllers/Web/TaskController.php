@@ -39,8 +39,31 @@ class TaskController extends Controller
             ->withQueryString();
 
         $statuses = TaskStatus::cases();
+        $canCreateTasks = $this->creatableProjects($user)->exists();
 
-        return view('tasks.index', compact('tasks', 'statuses', 'status', 'search', 'user'));
+        return view('tasks.index', compact('tasks', 'statuses', 'status', 'search', 'user', 'canCreateTasks'));
+    }
+
+    public function selectProject(Request $request): View|RedirectResponse
+    {
+        $user = $request->user()->loadMissing('role');
+
+        if ($request->filled('project')) {
+            $project = Project::query()->findOrFail($request->integer('project'));
+            Gate::authorize('create', [Task::class, $project]);
+
+            return redirect()->route('projects.tasks.create', $project);
+        }
+
+        $projects = $this->creatableProjects($user)
+            ->with(['manager', 'members'])
+            ->withCount('tasks')
+            ->orderBy('name')
+            ->get();
+
+        abort_if($projects->isEmpty(), 403);
+
+        return view('tasks.select-project', compact('projects'));
     }
 
     public function create(Project $project): View
@@ -89,5 +112,18 @@ class TaskController extends Controller
         $task->delete();
 
         return redirect()->route('projects.show', $project)->with('success', 'Tarea eliminada correctamente.');
+    }
+
+    private function creatableProjects(\App\Models\User $user): Builder
+    {
+        return Project::query()
+            ->when(
+                $user->hasRole(RoleName::ProjectManager),
+                fn (Builder $query) => $query->where('manager_id', $user->id),
+            )
+            ->when(
+                ! $user->hasRole(RoleName::Administrator) && ! $user->hasRole(RoleName::ProjectManager),
+                fn (Builder $query) => $query->whereRaw('1 = 0'),
+            );
     }
 }
