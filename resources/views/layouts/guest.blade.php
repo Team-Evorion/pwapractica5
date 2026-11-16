@@ -8,6 +8,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="guest-body">
+    <a class="guest-home-link" href="{{ route('home') }}" aria-label="Volver a la presentación del proyecto">
+        <span aria-hidden="true">←</span> Volver al inicio
+    </a>
     <main class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
         @yield('content')
     </main>

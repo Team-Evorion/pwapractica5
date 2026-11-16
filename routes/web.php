@@ -14,10 +14,8 @@ use App\Http\Controllers\Web\UserController as WebUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return auth()->check()
-        ? redirect()->route('dashboard')
-        : redirect()->route('login');
-});
+    return view('welcome');
+})->name('home');
 
 Route::middleware('guest')->group(function (): void {
     Route::get('login', [WebAuthenticatedSessionController::class, 'create'])->name('login');

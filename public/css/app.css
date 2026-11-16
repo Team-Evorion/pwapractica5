@@ -203,7 +203,18 @@ a { text-underline-offset: .15rem; }
 
 .guest-body {
     background: radial-gradient(circle at top right, #af8de9 0%, transparent 35%), linear-gradient(135deg, #171024, #342055 65%, #53328c);
+    position: relative;
 }
+.guest-home-link {
+    color: rgba(255, 255, 255, .78);
+    font-size: .9rem;
+    left: 1.5rem;
+    position: absolute;
+    text-decoration: none;
+    top: 1.25rem;
+    z-index: 2;
+}
+.guest-home-link:hover { color: #fff; }
 .login-shell {
     border-radius: 1.4rem;
     max-width: 68rem;

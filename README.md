@@ -12,6 +12,13 @@ Proyecto completo de la Clase Práctica 5 de Programación Web Avanzada de la Un
 
 ## Funciones implementadas
 
+### Presentación pública
+
+- Portada institucional de la Clase Práctica 5 accesible sin iniciar sesión.
+- Resumen del flujo de trabajo, tecnologías y alcance de cada rol.
+- Presentación responsive de los seis integrantes del proyecto.
+- Acceso directo al inicio de sesión o al panel cuando existe una sesión activa.
+
 ### Administrador
 
 - Iniciar y cerrar sesión.
@@ -131,6 +138,7 @@ database/
 └── seeders/                Roles y demostración
 
 resources/views/
+├── welcome.blade.php        Portada pública y equipo
 ├── auth/                   Inicio de sesión
 ├── layouts/                Plantillas generales
 ├── users/                  Gestión de usuarios
@@ -139,8 +147,18 @@ resources/views/
 
 public/
 ├── css/app.css             Diseño responsive
+├── css/landing.css         Presentación pública
 └── js/app.js               Interactividad
 ```
+
+## Equipo de desarrollo
+
+- Jesús Rafael Fernández Pérez
+- José Andrés Merlin Gamboa
+- José Alberto Rosado Domínguez
+- Terry Steven Ponce Farías
+- Elkin Daniel Velastegui Zambrano
+- Zahid Joel Zambrano Moreira
 
 ## Flujo de ramas recomendado
 
