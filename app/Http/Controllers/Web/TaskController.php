@@ -7,6 +7,7 @@ use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
 use App\Models\Project;
 use App\Models\Task;
+use App\Models\User;
 use App\RoleName;
 use App\TaskStatus;
 use Illuminate\Database\Eloquent\Builder;
@@ -114,7 +115,7 @@ class TaskController extends Controller
         return redirect()->route('projects.show', $project)->with('success', 'Tarea eliminada correctamente.');
     }
 
-    private function creatableProjects(\App\Models\User $user): Builder
+    private function creatableProjects(User $user): Builder
     {
         return Project::query()
             ->when(
