@@ -10,7 +10,7 @@ class ExampleTest extends TestCase
     /**
      * A basic test example.
      */
-    public function test_public_home_presents_the_project_and_team(): void
+    public function test_public_home_presents_the_project(): void
     {
         $response = $this->get('/');
 
@@ -18,6 +18,17 @@ class ExampleTest extends TestCase
             ->assertOk()
             ->assertSee('Gestión clara para')
             ->assertSee('equipos que avanzan.')
+            ->assertSee(route('team'));
+    }
+
+    public function test_team_page_presents_the_six_members(): void
+    {
+        $response = $this->get('/equipo');
+
+        $response
+            ->assertOk()
+            ->assertSee('Seis personas.')
+            ->assertSee('Una misma dirección.')
             ->assertSee('Jesús Rafael Fernández Pérez')
             ->assertSee('José Andrés Merlin Gamboa')
             ->assertSee('José Alberto Rosado Domínguez')

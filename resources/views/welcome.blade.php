@@ -20,7 +20,7 @@
             <div class="landing-links">
                 <a href="#sistema">Sistema</a>
                 <a href="#roles">Roles</a>
-                <a href="#equipo">Equipo</a>
+                <a href="{{ route('team') }}">Equipo</a>
             </div>
 
             <a class="landing-access" href="{{ auth()->check() ? route('dashboard') : route('login') }}">
@@ -144,28 +144,6 @@
             </div>
         </section>
 
-        <section class="landing-section team-section-public" id="equipo">
-            <div class="landing-container">
-                <div class="team-hero-row">
-                    <div>
-                        <p class="landing-kicker landing-kicker-purple">EQUIPO DE DESARROLLO</p>
-                        <h2>Un proyecto.<br><em>Seis integrantes.</em></h2>
-                    </div>
-                    <div class="team-count" aria-label="Seis integrantes"><strong>06</strong><span>INTEGRANTES</span></div>
-                    <p>Trabajo académico desarrollado de manera colaborativa por estudiantes de Programación Web Avanzada de la Universidad Bolivariana del Ecuador.</p>
-                </div>
-
-                <div class="public-team-grid">
-                    <article class="public-team-card"><span>JF</span><div><h3>Jesús Rafael Fernández Pérez</h3><p>Integrante del proyecto</p></div><i>01</i></article>
-                    <article class="public-team-card"><span>JM</span><div><h3>José Andrés Merlin Gamboa</h3><p>Integrante del proyecto</p></div><i>02</i></article>
-                    <article class="public-team-card"><span>JR</span><div><h3>José Alberto Rosado Domínguez</h3><p>Integrante del proyecto</p></div><i>03</i></article>
-                    <article class="public-team-card"><span>TP</span><div><h3>Terry Steven Ponce Farías</h3><p>Integrante del proyecto</p></div><i>04</i></article>
-                    <article class="public-team-card"><span>EV</span><div><h3>Elkin Daniel Velastegui Zambrano</h3><p>Integrante del proyecto</p></div><i>05</i></article>
-                    <article class="public-team-card"><span>ZZ</span><div><h3>Zahid Joel Zambrano Moreira</h3><p>Integrante del proyecto</p></div><i>06</i></article>
-                </div>
-            </div>
-        </section>
-
         <section class="landing-cta">
             <div class="landing-container landing-cta-inner">
                 <div><p class="landing-kicker">EL TRABAJO EMPIEZA AQUÍ</p><h2>Convierte la organización<br>en <em>avance real.</em></h2></div>
@@ -180,7 +158,7 @@
         <div class="landing-container landing-footer-inner">
             <a class="landing-brand landing-brand-footer" href="#inicio"><span class="landing-brand-mark">P5</span><span><strong>Gestión de Tareas</strong><small>Clase Práctica 5</small></span></a>
             <p>Universidad Bolivariana del Ecuador<br>Programación Web Avanzada · 2026</p>
-            <div><a href="#sistema">Sistema</a><a href="#roles">Roles</a><a href="#equipo">Equipo</a></div>
+            <div><a href="#sistema">Sistema</a><a href="#roles">Roles</a><a href="{{ route('team') }}">Equipo</a></div>
         </div>
     </footer>
 

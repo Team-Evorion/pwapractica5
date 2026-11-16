@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::view('/equipo', 'team')->name('team');
+
 Route::middleware('guest')->group(function (): void {
     Route::get('login', [WebAuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('login', [WebAuthenticatedSessionController::class, 'store'])->name('login.store');

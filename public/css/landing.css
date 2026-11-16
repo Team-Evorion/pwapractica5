@@ -145,7 +145,6 @@ html { scroll-behavior: smooth; }
 .landing-hero h1,
 .section-intro h2,
 .roles-copy h2,
-.team-hero-row h2,
 .landing-cta h2 {
     font-family: Georgia, "Times New Roman", serif;
     font-weight: 500;
@@ -156,7 +155,6 @@ html { scroll-behavior: smooth; }
 .landing-hero h1 em,
 .section-intro h2 em,
 .roles-copy h2 em,
-.team-hero-row h2 em,
 .landing-cta h2 em { color: #b88aef; font-weight: 400; }
 
 .landing-lead { color: rgba(255, 255, 255, .68); font-size: 1rem; line-height: 1.8; max-width: 620px; }
@@ -236,14 +234,11 @@ html { scroll-behavior: smooth; }
 .system-section { background: var(--landing-cream); }
 .split-intro { align-items: end; display: grid; gap: 80px; grid-template-columns: 1.1fr .9fr; margin-bottom: 58px; }
 .section-intro h2,
-.roles-copy h2,
-.team-hero-row h2 { font-size: clamp(2.6rem, 5vw, 4.6rem); line-height: 1; margin: 0; }
+.roles-copy h2 { font-size: clamp(2.6rem, 5vw, 4.6rem); line-height: 1; margin: 0; }
 .section-intro p,
-.roles-copy > p,
-.team-hero-row > p { color: var(--landing-muted); line-height: 1.75; margin-bottom: 0; }
+.roles-copy > p { color: var(--landing-muted); line-height: 1.75; margin-bottom: 0; }
 .section-intro h2 em,
-.roles-copy h2 em,
-.team-hero-row h2 em { color: var(--landing-purple); }
+.roles-copy h2 em { color: var(--landing-purple); }
 
 .workflow-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); }
 .workflow-card { background: #fff; border: 1px solid var(--landing-line); min-height: 340px; padding: 30px; position: relative; transition: transform .25s ease, box-shadow .25s ease; }
@@ -273,19 +268,6 @@ html { scroll-behavior: smooth; }
 .role-row p { color: rgba(255, 255, 255, .52); font-size: .78rem; line-height: 1.6; margin: 0; }
 .role-tag { border: 1px solid rgba(255, 255, 255, .2); border-radius: 999px; color: #d7c7e9; font-size: .56rem; font-weight: 750; padding: 7px 10px; text-transform: uppercase; }
 
-.team-section-public { background: #fff; }
-.team-hero-row { align-items: end; display: grid; gap: 45px; grid-template-columns: 1fr auto .8fr; margin-bottom: 60px; }
-.team-count { align-items: center; background: var(--landing-purple-dark); border-radius: 50%; color: #fff; display: flex; flex-direction: column; height: 145px; justify-content: center; width: 145px; }
-.team-count strong { font-family: Georgia, serif; font-size: 3.5rem; font-weight: 400; line-height: .9; }
-.team-count span { color: #cbb5e6; font-size: .52rem; font-weight: 800; letter-spacing: .14em; margin-top: 10px; }
-.public-team-grid { border-left: 1px solid var(--landing-line); border-top: 1px solid var(--landing-line); display: grid; grid-template-columns: repeat(3, 1fr); }
-.public-team-card { align-items: center; border-bottom: 1px solid var(--landing-line); border-right: 1px solid var(--landing-line); display: grid; gap: 18px; grid-template-columns: auto 1fr auto; min-height: 152px; padding: 24px; position: relative; transition: background .2s ease; }
-.public-team-card:hover { background: #faf7fd; }
-.public-team-card > span { align-items: center; background: var(--landing-lilac); border-radius: 50%; color: var(--landing-purple); display: flex; flex: 0 0 48px; font-family: Georgia, serif; height: 48px; justify-content: center; }
-.public-team-card h3 { font-family: Georgia, serif; font-size: 1rem; font-weight: 600; line-height: 1.35; margin-bottom: 7px; }
-.public-team-card p { color: var(--landing-muted); font-size: .65rem; margin: 0; }
-.public-team-card > i { align-self: start; color: #b3adb8; font-size: .58rem; font-style: normal; }
-
 .landing-cta { background: linear-gradient(110deg, #6d3eb1, #8e5ad1); color: #fff; padding: 88px 0; }
 .landing-cta-inner { align-items: center; display: flex; gap: 40px; justify-content: space-between; }
 .landing-cta h2 { font-size: clamp(2.4rem, 4.5vw, 4.2rem); line-height: 1; margin: 0; }
@@ -307,9 +289,6 @@ html { scroll-behavior: smooth; }
     .proof-grid { grid-template-columns: repeat(3, 1fr); }
     .proof-grid > p { grid-column: 1 / -1; text-align: center; }
     .split-intro { gap: 35px; grid-template-columns: 1fr; }
-    .team-hero-row { grid-template-columns: 1fr auto; }
-    .team-hero-row > p { grid-column: 1 / -1; max-width: 680px; }
-    .public-team-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 767.98px) {
@@ -332,10 +311,6 @@ html { scroll-behavior: smooth; }
     .workflow-grid { grid-template-columns: 1fr; }
     .workflow-card-featured { transform: none; }
     .workflow-card-featured:hover { transform: translateY(-5px); }
-    .team-hero-row { align-items: start; grid-template-columns: 1fr; }
-    .team-count { height: 120px; width: 120px; }
-    .team-count strong { font-size: 2.8rem; }
-    .public-team-grid { grid-template-columns: 1fr; }
     .role-row { align-items: start; grid-template-columns: auto 1fr; }
     .role-tag { grid-column: 2; justify-self: start; }
     .landing-cta-inner { align-items: flex-start; flex-direction: column; }
@@ -352,7 +327,6 @@ html { scroll-behavior: smooth; }
     .product-window { border-radius: 14px; }
     .product-task { grid-template-columns: auto 1fr; }
     .product-task em { grid-column: 2; justify-self: start; }
-    .public-team-card { min-height: 138px; padding: 19px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
